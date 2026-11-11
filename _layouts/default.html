@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description | escape }}">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+<style>{% include site.css %}</style>
+</head>
+<body>
+<div class="site-wrap">
+<div class="utility"><span>TACO BELL MEDIA / ONLINE EDITION</span><span>{{ 'now' | date: '%B %-d, %Y' }} <b class="utility-dot">•</b> EST. 2026</span></div>
+<header class="masthead">
+<a class="identity" href="{{ '/' | relative_url }}"><img src="{{ '/assets/images/taco-bell-logo.png' | relative_url }}" alt="Taco Bell Media logo"><span class="identity-text"><strong>TACO BELL <em>MEDIA</em></strong><small>NEWS &amp; INFORMATION SERVICES</small></span></a>
+<div class="masthead-aside"><strong>THE ONLINE EDITION</strong><span>Independent reporting &amp; public affairs</span></div>
+</header>
+<nav class="main-nav" aria-label="Primary navigation"><a href="{{ '/' | relative_url }}">Front Page</a><a href="{{ '/articles/' | relative_url }}">All News</a><a href="{{ '/articles/?category=Politics' | relative_url }}">Politics</a><a href="{{ '/articles/?category=Government' | relative_url }}">Government</a><a href="{{ '/articles/?category=Business' | relative_url }}">Business</a><a href="{{ '/articles/?category=Opinion' | relative_url }}">Opinion</a><a href="{{ '/about/' | relative_url }}">About TBM</a></nav>
+<div class="ticker" aria-label="Scrolling latest headlines"><span class="ticker-label">NEWSWIRE <span class="ticker-light">●</span></span><div class="ticker-viewport"><div class="ticker-track"><div class="ticker-segment">{% for post in site.posts limit:8 %}<a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a><span class="ticker-separator">◆</span>{% endfor %}{% if site.posts.size == 0 %}<span>Latest headlines from Taco Bell Media</span>{% endif %}</div><div class="ticker-segment" aria-hidden="true">{% for post in site.posts limit:8 %}<span>{{ post.title | escape }}</span><span class="ticker-separator">◆</span>{% endfor %}{% if site.posts.size == 0 %}<span>Latest headlines from Taco Bell Media</span>{% endif %}</div></div></div><a class="ticker-more" href="{{ '/articles/' | relative_url }}">MORE »</a></div>
+<main id="main">{{ content }}</main>
+<footer class="site-footer"><div><strong>TACO BELL MEDIA</strong><small>NEWS &amp; INFORMATION SERVICES</small></div><div><a href="{{ '/' | relative_url }}">Home</a> &nbsp; | &nbsp; <a href="{{ '/articles/' | relative_url }}">News Archive</a> &nbsp; | &nbsp; <a href="{{ '/about/' | relative_url }}">Company Information</a><p>© {{ 'now' | date: '%Y' }} Taco Bell Media. All rights reserved.</p></div></footer>
+</div>
+</body></html>
