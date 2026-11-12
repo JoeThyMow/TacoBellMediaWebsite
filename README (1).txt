@@ -1,0 +1,1 @@
+Place left-ad.png and right-ad.png here. Each image displays in the outside columns on wide screens. Recommended vertical image ratio: 300 x 600.\n
