@@ -1,8 +1,0 @@
-title: Taco Bell Media
-description: Independent coverage of politics, government, business, and public affairs.
-url: "https://joethymow.github.io"
-baseurl: "/TacoBellMedia"
-markdown: kramdown
-permalink: /articles/:title/
-exclude:
-  - README.md
