@@ -1,0 +1,26 @@
+---
+layout: default
+title: Front Page
+---
+{% assign lead = site.posts.first %}
+<div class="edition-line"><span>FRONT PAGE <b>/</b> LATEST COVERAGE</span><span>POLITICS • GOVERNMENT • BUSINESS</span></div>
+<div class="home-layout">
+<div class="primary">
+<section class="lead-story">
+{% if lead %}
+<div class="lead-eyebrow">{{ lead.category | default: 'TOP STORY' | upcase }} <span>/</span> {{ lead.date | date: '%B %-d, %Y' }}</div>
+<h1><a href="{{ lead.url | relative_url }}">{{ lead.title }}</a></h1>
+{% if lead.image %}<a href="{{ lead.url | relative_url }}"><img class="lead-photo" src="{{ lead.image | relative_url }}" alt="{{ lead.image_alt | default: lead.title | escape }}"></a>{% endif %}
+<p class="lead-description">{{ lead.description | default: lead.excerpt | strip_html | truncate: 220 }}</p>
+<div class="story-meta">BY {{ lead.author | default: 'EDITORIAL STAFF' | upcase }} <a href="{{ lead.url | relative_url }}">Read article »</a></div>
+{% else %}<h1>Taco Bell Media</h1><p>Reports and analysis will appear here when published.</p>{% endif %}
+</section>
+<div class="section-heading"><strong>THE LATEST</strong><a href="{{ '/articles/' | relative_url }}">All articles »</a></div>
+<div class="headlines">{% for post in site.posts offset:1 limit:10 %}<a class="headline" href="{{ post.url | relative_url }}"><div class="headline-main"><span class="eyebrow">{{ post.category | default: 'NEWS' | upcase }}</span><h2>{{ post.title }}</h2><p>{{ post.description | default: post.excerpt | strip_html | truncate: 140 }}</p></div><time>{{ post.date | date: '%b %-d, %Y' }}</time></a>{% else %}<p class="empty-note">Additional reports will appear here as they are published.</p>{% endfor %}</div>
+</div>
+<aside class="rail">
+<div class="rail-header">Sections</div><div class="rail-list"><a href="{{ '/articles/' | relative_url }}">All Headlines <span>›</span></a><a href="{{ '/articles/?category=Politics' | relative_url }}">Politics <span>›</span></a><a href="{{ '/articles/?category=Government' | relative_url }}">Government <span>›</span></a><a href="{{ '/articles/?category=Business' | relative_url }}">Business <span>›</span></a><a href="{{ '/articles/?category=Opinion' | relative_url }}">Opinion &amp; Commentary <span>›</span></a></div>
+<div class="rail-header rail-gap">Recent stories</div><div class="desk-list">{% for post in site.posts limit:5 %}<a href="{{ post.url | relative_url }}"><small>{{ post.date | date: '%d %b %Y' }} / {{ post.category | default: 'NEWS' | upcase }}</small><strong>{{ post.title }}</strong></a>{% endfor %}</div>
+<div class="rail-note"><b>About Taco Bell Media</b><p>Taco Bell Media covers politics, government and public affairs.</p><a href="{{ '/about/' | relative_url }}">About us »</a></div>
+</aside>
+</div>
