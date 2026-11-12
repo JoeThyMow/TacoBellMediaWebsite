@@ -1,1 +1,0 @@
-Upload election-results.jpg here, then set image: /assets/images/news/election-results.jpg in the article front matter.\n
