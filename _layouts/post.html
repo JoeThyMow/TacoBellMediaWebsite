@@ -1,4 +1,0 @@
----
-layout: default
----
-<div class="article-shell"><div class="breadcrumb"><a href="{{ '/' | relative_url }}">FRONT PAGE</a> / <a href="{{ '/articles/' | relative_url }}">NEWS ARCHIVE</a> / {{ page.category | default: 'NEWS' | upcase }}</div><article class="article"><span class="kicker">{{ page.category | default: 'NEWS' | upcase }}</span><h1>{{ page.title }}</h1>{% if page.description %}<p class="deck">{{ page.description }}</p>{% endif %}<div class="byline">BY <strong>{{ page.author | default: 'Taco Bell Media Staff' | upcase }}</strong> <span>·</span> {{ page.date | date: '%B %-d, %Y' }}</div>{% if page.image %}<img class="hero" src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title | escape }}">{% endif %}<div class="article-body">{{ content }}</div><div class="article-bottom"><a href="{{ '/articles/' | relative_url }}">« RETURN TO NEWS ARCHIVE</a></div></article></div>
